@@ -28,7 +28,6 @@ public class InteractionManagerScript : MonoBehaviour
 
         if (increasing)
         {
-
             if (newColor.a >= 1)
                 increasing = false;
             else
