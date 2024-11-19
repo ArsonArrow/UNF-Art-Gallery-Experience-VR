@@ -18,7 +18,6 @@ public class InteractionManagerScript : MonoBehaviour
     {
         DoClick();
         HandleRotation();
-        ModulateNodeMaterial();
     }
 
     private void ModulateNodeMaterial()
