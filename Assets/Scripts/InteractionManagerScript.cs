@@ -49,18 +49,21 @@ public class InteractionManagerScript : MonoBehaviour
         float currMouseX = Input.mousePosition.x;
         float currMouseY = Input.mousePosition.y;
 
-        float diffX = currMouseX - previousMouseX;
-        float diffY = currMouseY - previousMouseY;
+        if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+        { 
+            float diffX = currMouseX - previousMouseX;
+            float diffY = currMouseY - previousMouseY;
 
-        theCamera.transform.Rotate(new Vector3((-1 * diffY), diffX, 0));
-        Vector3 newRot = theCamera.transform.rotation.eulerAngles;
+            theCamera.transform.Rotate(new Vector3(diffY, (diffX * -1), 0));
+            Vector3 newRot = theCamera.transform.rotation.eulerAngles;
 
-        newRot.z = 0;
+            newRot.z = 0;
 
-        theCamera.transform.eulerAngles = newRot;
-
+            theCamera.transform.eulerAngles = newRot;
+        }
         previousMouseX = currMouseX;
-        previousMouseY = currMouseY;
+        previousMouseY = currMouseY; 
+        
     }
 
 
