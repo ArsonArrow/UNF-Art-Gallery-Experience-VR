@@ -1,0 +1,24 @@
+HandleRotation();
+
+
+private void HandleRotation()
+{
+    float currMouseX = Input.mousePosition.x;
+    float currMouseY = Input.mousePosition.y;
+
+    if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+    { 
+        float diffX = currMouseX - previousMouseX;
+        float diffY = currMouseY - previousMouseY;
+
+        theCamera.transform.Rotate(new Vector3(diffY, -diffX, 0));
+        Vector3 newRot = theCamera.transform.rotation.eulerAngles;
+
+        newRot.z = 0;
+
+        theCamera.transform.eulerAngles = newRot;
+    }
+    previousMouseX = currMouseX;
+    previousMouseY = currMouseY; 
+    
+}
