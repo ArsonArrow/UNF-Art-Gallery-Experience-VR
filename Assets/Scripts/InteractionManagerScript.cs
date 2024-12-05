@@ -11,7 +11,7 @@ public class InteractionManagerScript : MonoBehaviour
     public GameObject activeList;
     public Material nodeMat;
     
-    void Update()
+    void FixedUpdate()
     {
         Raycasting();
     }
@@ -25,7 +25,7 @@ public class InteractionManagerScript : MonoBehaviour
             Debug.Log(hit.collider.gameObject.name);
             hit.collider.gameObject.SendMessage("Highlight");
 
-            if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
             {
                 // Changes skybox to node's respective material
                 Material theStoredMaterial = hit.collider.gameObject.GetComponent<NodeLoadingScript>().myMaterial;
@@ -44,7 +44,7 @@ public class InteractionManagerScript : MonoBehaviour
             Debug.Log(hit.collider.gameObject.name);
             hit.collider.gameObject.SendMessage("Highlight");
 
-            if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
+            if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
             {
                 // Changes skybox to node's respective material
                 Material theStoredMaterial = hit.collider.gameObject.GetComponent<NodeLoadingScript>().myMaterial;
